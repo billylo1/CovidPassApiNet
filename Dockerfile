@@ -4,8 +4,14 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim-amd64 AS publish
 WORKDIR /app
 COPY CovidPassApiNet/ .
+
 RUN dotnet restore
 RUN dotnet publish -c Release -o /app/publish
+
+COPY CovidPassApiNet/appsettings.json /app/publish/appsettings.json
+COPY CovidPassApiNet/AppleCaCertificate.pem /app/publish/AppleCaCertificate.pem
+COPY CovidPassApiNet/AppleDeveloperCertificate.pem /app/publish/AppleDeveloperCertificate.pem
+COPY CovidPassApiNet/AppleDeveloperPassword /app/publish/AppleDeveloperPassword
 
 FROM base AS final
 WORKDIR /app
