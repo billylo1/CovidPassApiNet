@@ -7,3 +7,5 @@ appsettings.json
 *.pem
 docker-compose.yml
 CovidPassApiNet/AppleDeveloperPassword
+.DS_Store
+.DS_Store
