@@ -1,4 +1,4 @@
-docker build . -t covidpassapinet -t gcr.io/broadcast2patients/covidpassapinet
+docker buildx build --platform linux/amd64 . -t covidpassapinet -t gcr.io/broadcast2patients/covidpassapinet
 docker push gcr.io/broadcast2patients/covidpassapinet
 gcloud config set project broadcast2patients
 gcloud config set run/region us-east1
